@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_navigator/pages/first_page.dart';
-import 'package:flutter_basic_navigator/widgets/sample_dialog.dart';
+import 'package:flutter_basic_navigator/pages/second_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(
-        title: 'navigator',
+        title: 'basic-navigator',
       ),
     );
   }
@@ -38,36 +38,29 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return FirstPage();
-                      },
-                    ),
-                  );
-                  print('pressed');
-                },
-                child: Text('FirstPage')),
-            Button(context, 'Button'),
+            ButtonWidget(
+                context,
+                FirstPage(
+                  widgetTitle: 'FirstPage',
+                )),
+            ButtonWidget(
+                context,
+                SecondPage(
+                  widgetTitle: 'SecondPage',
+                )),
           ],
         ),
       ),
     );
   }
 
-  Widget Button(BuildContext context, String pageName) {
+  Widget ButtonWidget(BuildContext context, Widget widget) {
     return ElevatedButton(
         onPressed: () {
           Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return FirstPage();
-              },
-            ),
+            MaterialPageRoute(builder: (context) => widget),
           );
         },
-        child: Text(pageName));
+        child: Text(widget.toString()));
   }
 }

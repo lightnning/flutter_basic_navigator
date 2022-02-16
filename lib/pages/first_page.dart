@@ -3,14 +3,16 @@ import 'package:flutter_basic_navigator/pages/second_page.dart';
 import 'package:flutter_basic_navigator/pages/second_text_input_page.dart';
 import 'package:flutter_basic_navigator/widgets/sample_dialog.dart';
 
-
 class FirstPage extends StatelessWidget {
-  FirstPage({Key? key}) : super(key: key);
+  FirstPage({Key? key, required this.widgetTitle}) : super(key: key);
+
+  final String widgetTitle;
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('First Page')),
+      appBar: AppBar(title: Text(widgetTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -29,7 +31,7 @@ class FirstPage extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return SecondPage();
+                              return SecondPage(widgetTitle: 'SecondPage',);
                             },
                           ),
                         );
@@ -46,7 +48,7 @@ class FirstPage extends StatelessWidget {
                         await Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return SecondPage();
+                              return SecondPage(widgetTitle: 'SecondPage',);
                             },
                           ),
                         );
@@ -104,4 +106,3 @@ Widget _buildContents(List<Widget> children) {
     ),
   );
 }
-
