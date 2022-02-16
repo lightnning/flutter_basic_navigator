@@ -35,7 +35,6 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -51,30 +50,24 @@ class MyHomePage extends StatelessWidget {
                   print('pressed');
                 },
                 child: Text('FirstPage')),
-                Button(context,'SecondPage'),
+            Button(context, 'Button'),
           ],
         ),
       ),
     );
   }
 
-  Widget Button (BuildContext context,String pageName){
-    
+  Widget Button(BuildContext context, String pageName) {
     return ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return FirstPage();
-                      },
-                    ),
-                  );
-                  showDialog(
-      context: context,
-      builder: (context) => SampleDialog(),
-    );
-                  print('pressed');
-                },
-                child: Text(pageName));
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return FirstPage();
+              },
+            ),
+          );
+        },
+        child: Text(pageName));
   }
 }

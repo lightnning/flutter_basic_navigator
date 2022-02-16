@@ -73,6 +73,7 @@ class FirstPage extends StatelessWidget {
                         );
                         if (result != null) {
                           final contentText = 'I received ' + result + ' !';
+                          print(result);
                           showDialog(
                             context: context,
                             builder: (context) {

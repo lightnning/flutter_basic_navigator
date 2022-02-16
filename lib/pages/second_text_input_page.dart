@@ -26,15 +26,25 @@ class SecondTextInputPageState extends State<SecondTextInputPage> {
               left: 60.0,
               right: 60.0,
             ),
-            child: TextField(
-              onChanged: (value) {
-                inputValue = value;
-              },
-              onEditingComplete: () {
-                Navigator.of(context).pop(inputValue);
-              },
-              autofocus: true,
-              autocorrect: false,
+            child: Column(
+              children: [
+                Text('文字を入力後、EnterKeyを押す'),
+                TextField(
+                  onChanged: (value) {
+                    inputValue = value;
+                    print(inputValue);
+                  },
+                  onEditingComplete: () {
+                    
+                    Navigator.of(context).pop(inputValue);
+                    print(inputValue);
+                  },
+                  autofocus: true,
+                  autocorrect: false,
+                ),
+                
+                
+              ],
             ),
           ),
         ),
