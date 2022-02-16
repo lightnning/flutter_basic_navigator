@@ -1,2 +1,2 @@
-# flutter_navigator
+# flutter_basic_navigator
 to learn Flutter Basic Navigator
