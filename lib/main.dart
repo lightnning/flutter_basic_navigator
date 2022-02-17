@@ -38,48 +38,15 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ButtonWidget(
-                context,
-                FirstPage(
-                  widgetTitle: 'FirstPage',
-                ),
-                Colors.white),
-            ButtonWidget(
-                context, SecondPage(widgetTitle: 'SecondPage'), Colors.black),
-            ButtonW(
-              widget: SecondPage(widgetTitle: 'SecondPage'),
-              // color: Colors.white
-            ),
+            ButtonWidget(context,FirstPage(),),
+            ButtonWidget(context, SecondPage()),
           ],
         ),
       ),
     );
   }
 
-  Widget ButtonWidget(BuildContext context, Widget widget, Color color) {
-    String widgetTitle = widget.toString();
-    return ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => widget),
-          );
-        },
-        child: Text(
-          widgetTitle,
-          style: TextStyle(color: color),
-        ));
-  }
-}
-
-class ButtonW extends StatelessWidget {
-  ButtonW({Key? key, required Widget this.widget, Color? this.color})
-      : super(key: key);
-
-  final Color? color;
-  final Widget widget;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget ButtonWidget(BuildContext context, Widget widget) {
     return ElevatedButton(
         onPressed: () {
           Navigator.of(context).push(
@@ -88,7 +55,6 @@ class ButtonW extends StatelessWidget {
         },
         child: Text(
           widget.toString(),
-          style: TextStyle(color: color),
         ));
   }
 }
