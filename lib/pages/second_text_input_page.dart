@@ -35,15 +35,12 @@ class SecondTextInputPageState extends State<SecondTextInputPage> {
                     print(inputValue);
                   },
                   onEditingComplete: () {
-                    
                     Navigator.of(context).pop(inputValue);
                     print(inputValue);
                   },
                   autofocus: true,
                   autocorrect: false,
                 ),
-                
-                
               ],
             ),
           ),

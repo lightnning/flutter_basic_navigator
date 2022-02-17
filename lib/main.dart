@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_navigator/pages/first_page.dart';
 import 'package:flutter_basic_navigator/pages/second_page.dart';
+import 'package:flutter_basic_navigator/widgets/button_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,23 +39,11 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ButtonWidget(context,FirstPage(),),
-            ButtonWidget(context, SecondPage()),
+            ButtonWidget(pushOrPop: 'push', widget: FirstPage()),
+            ButtonWidget(pushOrPop: 'push', widget: SecondPage()),
           ],
         ),
       ),
     );
-  }
-
-  Widget ButtonWidget(BuildContext context, Widget widget) {
-    return ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => widget),
-          );
-        },
-        child: Text(
-          widget.toString(),
-        ));
   }
 }

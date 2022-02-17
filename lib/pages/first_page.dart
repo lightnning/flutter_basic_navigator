@@ -9,6 +9,9 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('FirstPage'),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -20,7 +23,7 @@ class FirstPage extends StatelessWidget {
               children: <Widget>[
                 _buildContents(
                   [
-                    Text('Pattern 1'),
+                    Text('Pushしてback'),
                     ElevatedButton(
                       child: Text('Next'),
                       onPressed: () {
@@ -37,7 +40,7 @@ class FirstPage extends StatelessWidget {
                 ),
                 _buildContents(
                   [
-                    Text('Pattern 2'),
+                    Text('pushしてback => showDialog表示'),
                     ElevatedButton(
                       child: Text('Next'),
                       onPressed: () async {
@@ -58,7 +61,7 @@ class FirstPage extends StatelessWidget {
                 ),
                 _buildContents(
                   [
-                    Text('Pattern 3'),
+                    Text('SecondTextInputPageに遷移'),
                     ElevatedButton(
                       child: Text('Next'),
                       onPressed: () async {
