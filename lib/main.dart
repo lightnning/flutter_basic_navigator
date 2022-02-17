@@ -25,11 +25,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, required String this.title}) : super(key: key);
+  MyHomePage({Key? key, required String this.title})
+      : super(key: key);
   final String title;
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -42,25 +44,55 @@ class MyHomePage extends StatelessWidget {
                 context,
                 FirstPage(
                   widgetTitle: 'FirstPage',
-                )),
+                ),
+                Colors.white),
             ButtonWidget(
-                context,
-                SecondPage(
-                  widgetTitle: 'SecondPage',
-                )),
+                context, SecondPage(widgetTitle: 'SecondPage'), Colors.black),
+
+            ButtonW(
+                widget: SecondPage(widgetTitle: 'SecondPage'),
+                // color: Colors.white
+                ),
           ],
         ),
       ),
     );
   }
 
-  Widget ButtonWidget(BuildContext context, Widget widget) {
+  Widget ButtonWidget(BuildContext context, Widget widget, Color color) {
+    String widgetTitle = widget.toString();
     return ElevatedButton(
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => widget),
           );
         },
-        child: Text(widget.toString()));
+        child: Text(
+          widgetTitle,
+          style: TextStyle(color: color),
+        ));
+  }
+}
+
+class ButtonW extends StatelessWidget {
+  ButtonW({Key? key, required Widget this.widget,Color? this.color})
+      : super(key: key);
+
+  final Color? color;
+  final Widget widget;
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => widget),
+          );
+        },
+        child: Text(
+          widget.toString(),
+          style: TextStyle(color: color),
+        ));
   }
 }
