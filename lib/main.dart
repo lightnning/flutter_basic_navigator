@@ -25,13 +25,11 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, required String this.title})
-      : super(key: key);
+  MyHomePage({Key? key, required String this.title}) : super(key: key);
   final String title;
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -48,11 +46,10 @@ class MyHomePage extends StatelessWidget {
                 Colors.white),
             ButtonWidget(
                 context, SecondPage(widgetTitle: 'SecondPage'), Colors.black),
-
             ButtonW(
-                widget: SecondPage(widgetTitle: 'SecondPage'),
-                // color: Colors.white
-                ),
+              widget: SecondPage(widgetTitle: 'SecondPage'),
+              // color: Colors.white
+            ),
           ],
         ),
       ),
@@ -75,12 +72,11 @@ class MyHomePage extends StatelessWidget {
 }
 
 class ButtonW extends StatelessWidget {
-  ButtonW({Key? key, required Widget this.widget,Color? this.color})
+  ButtonW({Key? key, required Widget this.widget, Color? this.color})
       : super(key: key);
 
   final Color? color;
   final Widget widget;
-  
 
   @override
   Widget build(BuildContext context) {
