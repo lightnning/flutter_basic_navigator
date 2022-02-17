@@ -25,7 +25,7 @@ class FirstPage extends StatelessWidget {
                   [
                     Text('Pushしてback'),
                     ElevatedButton(
-                      child: Text('Next'),
+                      child: Text('=> SecondPage'),
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -42,7 +42,7 @@ class FirstPage extends StatelessWidget {
                   [
                     Text('pushしてback => showDialog表示'),
                     ElevatedButton(
-                      child: Text('Next'),
+                      child: Text('=> SecondPage => showDialog'),
                       onPressed: () async {
                         await Navigator.of(context).push(
                           MaterialPageRoute(
@@ -53,7 +53,8 @@ class FirstPage extends StatelessWidget {
                         );
                         showDialog(
                           context: context,
-                          builder: (context) => SampleDialog(),
+                          barrierDismissible: false,
+                          builder: (context) => SampleDialog(contentText: 'FirstPageに戻ります',),
                         );
                       },
                     ),
@@ -63,7 +64,7 @@ class FirstPage extends StatelessWidget {
                   [
                     Text('SecondTextInputPageに遷移'),
                     ElevatedButton(
-                      child: Text('Next'),
+                      child: Text('=> SecondTextInputPage'),
                       onPressed: () async {
                         final result = await Navigator.of(context).push(
                           MaterialPageRoute(
@@ -99,7 +100,7 @@ class FirstPage extends StatelessWidget {
 
 Widget _buildContents(List<Widget> children) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 40.0),
+    padding: const EdgeInsets.only(bottom: 30.0),
     child: Column(
       children: children,
     ),
