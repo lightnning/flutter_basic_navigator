@@ -39,15 +39,11 @@ class SplashPage extends StatelessWidget {
           children: [
             Text(
               'Splash Screen',
-              style: TextStyle(fontSize: 30),
-            ),
-            SizedBox(
-              height: 40,
             ),
             ButtonWidget(
                 pushOrPop: 'pushReplacement',
                 widget: LogInPage(),
-                description: 'LogInPageへ遷移する')
+                description: 'LogInPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる')
           ],
         ),
       ),

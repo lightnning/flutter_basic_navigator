@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_navigator/pages/second_page.dart';
 import 'package:flutter_basic_navigator/pages/second_text_input_page.dart';
-import 'package:flutter_basic_navigator/widgets/sample_dialog.dart';
+import 'package:flutter_basic_navigator/widgets/button_widget.dart';
+
+import '../main.dart';
 
 class FirstPage extends StatelessWidget {
   FirstPage({Key? key}) : super(key: key);
@@ -21,74 +23,22 @@ class FirstPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                _buildContents(
-                  [
-                    Text('Pushしてback'),
-                    ElevatedButton(
-                      child: Text('=> SecondPage'),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return SecondPage();
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                _buildContents(
-                  [
-                    Text('pushしてback => showDialog表示'),
-                    ElevatedButton(
-                      child: Text('=> SecondPage => showDialog'),
-                      onPressed: () async {
-                        await Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return SecondPage();
-                            },
-                          ),
-                        );
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (context) => SampleDialog(contentText: 'FirstPageに戻ります',),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                _buildContents(
-                  [
-                    Text('SecondTextInputPageに遷移'),
-                    ElevatedButton(
-                      child: Text('=> SecondTextInputPage'),
-                      onPressed: () async {
-                        final result = await Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return SecondTextInputPage();
-                            },
-                          ),
-                        );
-                        if (result != null) {
-                          final contentText = 'I received ' + result + ' !';
-                          print(result);
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return SampleDialog(
-                                contentText: contentText,
-                              );
-                            },
-                          );
-                        }
-                      },
-                    ),
-                  ],
-                ),
+                ButtonWidget(
+                    pushOrPop: 'push',
+                    widget: SecondPage(),
+                    description: 'SecondPageへ遷移する'),
+                ButtonWidget(
+                    pushOrPop: 'push-showDialog',
+                    widget: SecondPage(),
+                    description: 'SecondPageへ遷移する\npop時にDialogを表示させる'),
+                ButtonWidget(
+                    pushOrPop: 'push-shoDialog-text',
+                    widget: SecondTextInputPage(),
+                    description: 'SecondTextInputPageへ遷移する\npop時に入力した文字を表示させる'),
+                ButtonWidget(
+                    pushOrPop: 'pushAndRemoveUntil',
+                    widget: SplashPage(),
+                    description: 'ログアウトボタンとして使う\n条件に一致するまでスタックから画面を\n除いていく\nその後画面をpushする'),
               ],
             ),
           ),
@@ -98,11 +48,3 @@ class FirstPage extends StatelessWidget {
   }
 }
 
-Widget _buildContents(List<Widget> children) {
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 30.0),
-    child: Column(
-      children: children,
-    ),
-  );
-}

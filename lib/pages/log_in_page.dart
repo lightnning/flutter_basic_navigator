@@ -17,20 +17,17 @@ class LogInPage extends StatelessWidget {
           children: [
             Text(
               'mail-address',
-              style: TextStyle(fontSize: 20),
             ),
             Text(
               'password',
-              style: TextStyle(fontSize: 20),
             ),
-            SizedBox(
-              height: 40,
-            ),
+            SizedBox(height: 60,),
             ButtonWidget(
                 pushOrPop: 'pushReplacement',
                 widget: FirstPage(),
-                description: 'FirstPageへ遷移する')
-            
+                description: 'FirstPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる'),
+            ButtonWidget(pushOrPop: 'canPop', description: '戻れる=> true\n戻れない=> false'),
+            ButtonWidget(pushOrPop: 'pop', description: 'route画面がないので\npopできなくて画面が真っ黒になる'),
           ],
         ),
       ),

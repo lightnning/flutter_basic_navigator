@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_navigator/pages/third_page.dart';
+import 'package:flutter_basic_navigator/widgets/button_widget.dart';
 
 class SecondPage extends StatelessWidget {
   SecondPage({Key? key}) : super(key: key);
@@ -10,11 +12,15 @@ class SecondPage extends StatelessWidget {
         title: Text('SecondPage'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Back'),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ButtonWidget(
+                pushOrPop: 'push',
+                widget: ThirdPage(),
+                description: 'ThirdPageに遷移する\n'),
+            ButtonWidget(pushOrPop: 'pop', description: 'pushしたボタンにより\n戻る or\nDialogを表示する'),
+          ],
         ),
       ),
     );
