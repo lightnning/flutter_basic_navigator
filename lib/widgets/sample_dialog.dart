@@ -18,6 +18,13 @@ class SampleDialog extends StatelessWidget {
         maxLines: 2,
         style: Theme.of(context).textTheme.bodyText2,
       ),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('YES')),
+      ],
     );
   }
 }

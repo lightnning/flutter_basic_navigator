@@ -17,7 +17,7 @@ class SecondTextInputPageState extends State<SecondTextInputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Second Page')),
+      appBar: AppBar(title: Text('SecondTextInputPage')),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -35,15 +35,11 @@ class SecondTextInputPageState extends State<SecondTextInputPage> {
                     print(inputValue);
                   },
                   onEditingComplete: () {
-                    
                     Navigator.of(context).pop(inputValue);
-                    print(inputValue);
                   },
                   autofocus: true,
                   autocorrect: false,
                 ),
-                
-                
               ],
             ),
           ),

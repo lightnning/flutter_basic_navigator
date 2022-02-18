@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_navigator/pages/first_page.dart';
-import 'package:flutter_basic_navigator/widgets/sample_dialog.dart';
+import 'package:flutter_basic_navigator/pages/log_in_page.dart';
+import 'package:flutter_basic_navigator/pages/second_page.dart';
+import 'package:flutter_basic_navigator/widgets/button_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,57 +19,34 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
-        title: 'navigator',
-      ),
+      home: SplashPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, required String this.title}) : super(key: key);
-  final String title;
+class SplashPage extends StatelessWidget {
+  SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('SplashPage'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return FirstPage();
-                      },
-                    ),
-                  );
-                  print('pressed');
-                },
-                child: Text('FirstPage')),
-            Button(context, 'Button'),
+            Text(
+              'Splash Screen',
+            ),
+            ButtonWidget(
+                pushOrPop: 'pushReplacement',
+                widget: LogInPage(),
+                description: 'LogInPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる')
           ],
         ),
       ),
     );
-  }
-
-  Widget Button(BuildContext context, String pageName) {
-    return ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return FirstPage();
-              },
-            ),
-          );
-        },
-        child: Text(pageName));
   }
 }
