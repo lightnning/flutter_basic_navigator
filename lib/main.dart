@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_navigator/pages/first_page.dart';
 import 'package:flutter_basic_navigator/pages/log_in_page.dart';
-import 'package:flutter_basic_navigator/pages/second_page.dart';
 import 'package:flutter_basic_navigator/widgets/button_widget.dart';
 
 void main() {

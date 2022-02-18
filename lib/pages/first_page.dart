@@ -19,7 +19,7 @@ class FirstPage extends StatelessWidget {
           child: Container(
             alignment: Alignment.topCenter,
             padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 6),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[

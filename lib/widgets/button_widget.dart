@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_navigator/main.dart';
 import 'package:flutter_basic_navigator/pages/second_text_input_page.dart';
 import 'package:flutter_basic_navigator/widgets/sample_dialog.dart';
 
