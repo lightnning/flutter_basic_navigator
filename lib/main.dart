@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_navigator/pages/first_page.dart';
+import 'package:flutter_basic_navigator/pages/log_in_page.dart';
 import 'package:flutter_basic_navigator/pages/second_page.dart';
 import 'package:flutter_basic_navigator/widgets/button_widget.dart';
 
@@ -18,29 +19,35 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
-        title: 'basic-navigator',
-      ),
+      home: SplashPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, required String this.title}) : super(key: key);
-  final String title;
+class SplashPage extends StatelessWidget {
+  SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('SplashPage'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ButtonWidget(pushOrPop: 'push', widget: FirstPage()),
-            ButtonWidget(pushOrPop: 'push', widget: SecondPage()),
+            Text(
+              'Splash Screen',
+              style: TextStyle(fontSize: 30),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            ButtonWidget(
+                pushOrPop: 'pushReplacement',
+                widget: LogInPage(),
+                description: 'LogInPageへ遷移する')
           ],
         ),
       ),
