@@ -48,8 +48,7 @@ class ButtonWidget extends StatelessWidget {
                     ),
                   );
                   if (result != null) {
-                    final contentText = 'I received ' + result + ' !';
-                    print(result);
+                    final contentText = 'result: "${result}" ';
                     showDialog(
                       context: context,
                       barrierDismissible: false,

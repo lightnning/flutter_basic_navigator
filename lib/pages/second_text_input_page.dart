@@ -32,7 +32,6 @@ class SecondTextInputPageState extends State<SecondTextInputPage> {
                 TextField(
                   onChanged: (value) {
                     inputValue = value;
-                    print(inputValue);
                   },
                   onEditingComplete: () {
                     Navigator.of(context).pop(inputValue);
