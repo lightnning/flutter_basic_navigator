@@ -25,10 +25,12 @@ class ButtonWidget extends StatelessWidget {
                 if (pushOrPop == 'pushReplacement' && widget != null) {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => widget!));
-                } else if (pushOrPop == 'push' && widget != null) {
+                }
+                if (pushOrPop == 'push' && widget != null) {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => widget!));
-                } else if (pushOrPop == 'push-showDialog' && widget != null) {
+                }
+                if (pushOrPop == 'push-showDialog' && widget != null) {
                   await Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => widget!));
                   showDialog(
@@ -38,8 +40,8 @@ class ButtonWidget extends StatelessWidget {
                       contentText: 'FirstPageに戻ります',
                     ),
                   );
-                } else if (pushOrPop == 'push-shoDialog-text' &&
-                    widget != null) {
+                }
+                if (pushOrPop == 'push-shoDialog-text' && widget != null) {
                   final result = await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
@@ -59,13 +61,17 @@ class ButtonWidget extends StatelessWidget {
                       },
                     );
                   }
-                } else if (pushOrPop == 'pop') {
+                }
+                if (pushOrPop == 'pop') {
                   Navigator.of(context).pop();
-                } else if (pushOrPop == 'canPop') {
+                }
+                if (pushOrPop == 'canPop') {
                   print(Navigator.of(context).canPop());
-                } else if (pushOrPop == 'popUntil') {
+                }
+                if (pushOrPop == 'popUntil') {
                   Navigator.of(context).popUntil((route) => route.isFirst);
-                } else if (pushOrPop == 'pushAndRemoveUntil') {
+                }
+                if (pushOrPop == 'pushAndRemoveUntil') {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => widget!));
                   Navigator.of(context).pushAndRemoveUntil(
