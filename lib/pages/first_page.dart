@@ -19,7 +19,7 @@ class FirstPage extends StatelessWidget {
           child: Container(
             alignment: Alignment.topCenter,
             padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 6),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -30,15 +30,11 @@ class FirstPage extends StatelessWidget {
                 ButtonWidget(
                     pushOrPop: 'push-showDialog',
                     widget: SecondPage(),
-                    description: 'SecondPageへ遷移する\npop時にDialogを表示させる'),
+                    description: 'SecondPageへ遷移する\npopでDialogを表示させる'),
                 ButtonWidget(
                     pushOrPop: 'push-shoDialog-text',
                     widget: SecondTextInputPage(),
-                    description: 'SecondTextInputPageへ遷移する\npop時に入力した文字を表示させる'),
-                ButtonWidget(
-                    pushOrPop: 'pushAndRemoveUntil',
-                    widget: SplashPage(),
-                    description: 'ログアウトボタンとして使う\n条件に一致するまでスタックから画面を\n除いていく\nその後画面をpushする'),
+                    description: 'SecondTextInputPageへ遷移する\n入力した文字をpopで表示させる'),
               ],
             ),
           ),
@@ -47,4 +43,3 @@ class FirstPage extends StatelessWidget {
     );
   }
 }
-
