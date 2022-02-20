@@ -72,8 +72,6 @@ class ButtonWidget extends StatelessWidget {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                 }
                 if (pushOrPop == 'pushAndRemoveUntil') {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => widget!));
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(builder: (context) => widget!),
                       (_) => false);
