@@ -12,15 +12,18 @@ class SecondPage extends StatelessWidget {
         title: Text('SecondPage'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ButtonWidget(
-                pushOrPop: 'push',
-                widget: ThirdPage(),
-                description: 'ThirdPageに遷移する\n'),
-            ButtonWidget(pushOrPop: 'pop', description: 'pushしたボタンにより\n戻る or\nDialogを表示する'),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ButtonWidget(
+                  pushOrPop: 'push',
+                  widget: ThirdPage(),
+                  description: 'ThirdPageに遷移する\n'),
+              ButtonWidget(pushOrPop: 'pop', description: 'pushしたボタンにより\n戻る or\nDialogを表示する'),
+            ],
+          ),
         ),
       ),
     );

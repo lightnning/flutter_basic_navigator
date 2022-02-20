@@ -32,17 +32,20 @@ class SplashPage extends StatelessWidget {
         title: Text('SplashPage'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Splash Screen',
-            ),
-            ButtonWidget(
-                pushOrPop: 'pushReplacement',
-                widget: LogInPage(),
-                description: 'LogInPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる')
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'Splash Screen',
+              ),
+              ButtonWidget(
+                  pushOrPop: 'pushReplacement',
+                  widget: LogInPage(),
+                  description: 'LogInPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる')
+            ],
+          ),
         ),
       ),
     );

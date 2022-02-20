@@ -12,23 +12,26 @@ class LogInPage extends StatelessWidget {
         title: Text('LogInPage'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'mail-address',
-            ),
-            Text(
-              'password',
-            ),
-            SizedBox(height: 60,),
-            ButtonWidget(
-                pushOrPop: 'pushReplacement',
-                widget: FirstPage(),
-                description: 'FirstPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる'),
-            ButtonWidget(pushOrPop: 'canPop', description: '戻れる=> true\n戻れない=> false'),
-            ButtonWidget(pushOrPop: 'pop', description: 'route画面がないので\npopできなくて画面が真っ黒になる'),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'mail-address',
+              ),
+              Text(
+                'password',
+              ),
+              SizedBox(height: 60,),
+              ButtonWidget(
+                  pushOrPop: 'pushReplacement',
+                  widget: FirstPage(),
+                  description: 'FirstPageへ遷移する\nroute画面を消してしまうので元に戻れなくなる'),
+              ButtonWidget(pushOrPop: 'canPop', description: '戻れる=> true\n戻れない=> false'),
+              ButtonWidget(pushOrPop: 'pop', description: 'route画面がないので\npopできなくて画面が真っ黒になる'),
+            ],
+          ),
         ),
       ),
     );
